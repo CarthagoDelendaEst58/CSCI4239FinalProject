@@ -1,0 +1,48 @@
+Final Project - Robert Dumitrescu
+
+Key bindings
+  left click + drag   Change view angle
+  arrows              Change view angle
+  f                   Toggle accretion disk
+  w                   Increase ray steps
+  s                   Decrease ray steps
+  0                   Reset view angle
+  ESC                 Exit
+
+Project can be compiled with 'make' and ran with './final'
+
+This program shows off my black hole shader.
+I think that my solution came out pretty well overall.
+
+After attempting multiple solutions, which typically involved two concentric spheres and either
+reflections/ray bending, I decided to give up and fully invest into ray tracing.
+
+The scene consists solely of a quad rendered in front of the camera.
+The scene.frag shader uses a ray tracing technique to procedurally determine how to render each pixel.
+
+A world position is determined for each pixel and a ray is shot out in the z direction from there.
+The ray goes through a series of iterations where it is accelerated towards the center of the scene.
+This acceleration is augmented by proximity to the center to model gravity's properties.
+Rays that come too close to the center of the scene are determined to have hit the event horizon and
+the originating pixel will be rendered black.
+If the ray does not enter the event horizon by the end of the iterations, the skybox is sampled from
+the ray's resulting direction.
+
+This basic ray tracing implementation worked very well and mimics properties of gravitational lensing
+that have been observed, such as duplicate images and einstein rings.
+
+As for the accretion disk, I am happy with how it came out regarding the physics, but there are
+some geometric aberrations caused by it that lower the scene quality in my opinion.
+
+When the accretion disk is toggled, additional logic is applied to the ray to determine if it passes
+through the accretion disk.
+If it passes through the accretion disk, a reddish orange is added to the fragment color.
+This addition is stronger as the point at which the ray crosses the accretion disk is closer to the
+center of the black hole in order to simulate a denser and hotter part of the disk.
+Perlin noise is also used with the accretion disk to give it some texture.
+In retrospect, sampling a cloud texture may have yielded cleaner results.
+
+#External Resources#
+Perlin noise function - https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
+Generating camera rays - https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/generating-camera-rays
+Skybox - https://www.eso.org/public/images/eso0932a/
