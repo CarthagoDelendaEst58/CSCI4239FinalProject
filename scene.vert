@@ -1,6 +1,6 @@
 // Barebones vertex shader
 
-#version 400 core
+#version 330 core
 
 uniform mat4 ProjectionMatrix;
 uniform mat4 ModelViewMatrix;

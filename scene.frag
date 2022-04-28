@@ -1,4 +1,4 @@
-#version 400 core
+#version 330 core
 
 uniform vec3 eyepos;
 uniform samplerCube cubemap;
