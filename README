@@ -42,7 +42,7 @@ center of the black hole in order to simulate a denser and hotter part of the di
 Perlin noise is also used with the accretion disk to give it some texture.
 In retrospect, sampling a cloud texture may have yielded cleaner results.
 
-#External Resources#
+##External Resources##
 Perlin noise function - https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
 Generating camera rays - https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/generating-camera-rays
 Skybox - https://www.eso.org/public/images/eso0932a/
